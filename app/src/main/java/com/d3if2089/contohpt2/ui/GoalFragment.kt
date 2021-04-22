@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.d3if2089.contohpt2.MainActivity
 import com.d3if2089.contohpt2.R
 
 // TODO: Rename parameter arguments, choose names that match

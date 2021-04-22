@@ -5,22 +5,33 @@
     android:layout_height="match_parent"
     tools:context=".ui.GoalFragment">
 
-    <RelativeLayout
-        android:id="@+id/layout_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:background="@color/royal_blue"
-        android:paddingLeft="7dp"
-        android:paddingTop="7dp"
-        android:paddingRight="7dp">
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/layout_toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="68dp"-->
+<!--        android:background="@color/royal_blue"-->
+<!--        android:paddingLeft="7dp"-->
+<!--        android:paddingTop="7dp"-->
+<!--        android:paddingRight="7dp"-->
+<!--        android:paddingBottom="7dp">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/goal"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="@color/white"
-            android:textSize="14pt" />
-    </RelativeLayout>
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:paddingLeft="7dp"-->
+<!--            android:paddingTop="7dp"-->
+<!--            android:paddingRight="7dp"-->
+<!--            android:paddingBottom="7dp"-->
+<!--            android:layout_height="68dp">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="sans-serif-condensed"-->
+<!--                android:text="@string/goal"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="14pt" />-->
+<!--        </RelativeLayout>-->
+
+<!--    </androidx.appcompat.widget.Toolbar>-->
 
 </FrameLayout>

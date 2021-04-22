@@ -21,15 +21,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        setSupportActionBar(myToolbar)
+        setSupportActionBar(binding.layoutToolbar)
 
         currentPage(WishlistFragment())
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
-                R.id.wishlist -> currentPage(WishlistFragment())
-                R.id.profile -> currentPage(ProfileFragment())
-                R.id.goal -> currentPage(GoalFragment())
-                R.id.statistik -> currentPage(StatisticFragment())
+                R.id.wishlist -> {
+                    binding.titleText?.text = getString(R.string.wishlist)
+                    currentPage(WishlistFragment())
+                }
+                R.id.profile -> {
+                    binding.titleText?.text = "Profile"
+                    currentPage(ProfileFragment())
+                }
+                R.id.goal -> {
+                    binding.titleText?.text = getString(R.string.goal)
+                    currentPage(GoalFragment())
+                }
+                R.id.statistik -> {
+                    binding.titleText?.text = getString(R.string.statistic)
+                    currentPage(StatisticFragment())
+                }
             }
             true
         }
