@@ -14,13 +14,17 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val wishlistFragment = WishlistFragment()
+    private val statisticFragment = StatisticFragment()
+    private val goalFragment = GoalFragment()
+    private val profileFragment = ProfileFragment()
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
+        setContentView(binding.root)
         setSupportActionBar(binding.layoutToolbar)
 
         currentPage(WishlistFragment())
@@ -28,19 +32,19 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId) {
                 R.id.wishlist -> {
                     binding.titleText?.text = getString(R.string.wishlist)
-                    currentPage(WishlistFragment())
+                    currentPage(wishlistFragment)
                 }
                 R.id.profile -> {
                     binding.titleText?.text = "Profile"
-                    currentPage(ProfileFragment())
+                    currentPage(profileFragment)
                 }
                 R.id.goal -> {
                     binding.titleText?.text = getString(R.string.goal)
-                    currentPage(GoalFragment())
+                    currentPage(goalFragment)
                 }
                 R.id.statistik -> {
                     binding.titleText?.text = getString(R.string.statistic)
-                    currentPage(StatisticFragment())
+                    currentPage(statisticFragment)
                 }
             }
             true
@@ -51,4 +55,6 @@ class MainActivity : AppCompatActivity() {
         replace(R.id.frame_layout, fragment)
         commit()
     }
+
+
 }

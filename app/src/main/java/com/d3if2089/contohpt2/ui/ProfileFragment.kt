@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
+import com.d3if2089.contohpt2.History
 import com.d3if2089.contohpt2.MainActivity
+import com.d3if2089.contohpt2.MainAdapter
 import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.databinding.FragmentProfileBinding
 
@@ -38,8 +42,12 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        binding = FragmentProfileBinding.inflate(layoutInflater, container , false)
+        with(binding.recyclerView) {
+            adapter = MainAdapter(getData())
+            setHasFixedSize(true)
+        }
+        return binding.root
     }
 
     companion object {
@@ -60,5 +68,14 @@ class ProfileFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private fun getData(): List<History> {
+        return listOf(
+            History("OKT",3000000,3000000),
+            History("NOV",3000000, 3000000),
+            History("DES",3000000,3000000),
+            History("JAN",3000000,3000000)
+        )
     }
 }
