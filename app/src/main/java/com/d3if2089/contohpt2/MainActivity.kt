@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                     currentPage(profileFragment)
                 }
                 R.id.goal -> {
-                    binding.titleText?.text = getString(R.string.goal)
+                    binding.titleText?.text = getString(R.string.goal_title)
                     currentPage(goalFragment)
                 }
                 R.id.statistik -> {

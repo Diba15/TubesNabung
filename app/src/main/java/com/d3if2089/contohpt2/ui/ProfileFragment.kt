@@ -5,12 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
-import com.d3if2089.contohpt2.History
-import com.d3if2089.contohpt2.MainActivity
+import com.d3if2089.contohpt2.data.History
 import com.d3if2089.contohpt2.MainAdapter
-import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.databinding.FragmentProfileBinding
 
 // TODO: Rename parameter arguments, choose names that match

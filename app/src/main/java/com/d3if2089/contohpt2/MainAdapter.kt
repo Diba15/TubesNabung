@@ -3,6 +3,7 @@ package com.d3if2089.contohpt2
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.d3if2089.contohpt2.data.History
 import com.d3if2089.contohpt2.databinding.ListHistoryBinding
 
 class MainAdapter(private val data: List<History>):

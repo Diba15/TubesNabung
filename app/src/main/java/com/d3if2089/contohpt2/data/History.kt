@@ -1,4 +1,4 @@
-package com.d3if2089.contohpt2
+package com.d3if2089.contohpt2.data
 
 data class History (
     val month: String,

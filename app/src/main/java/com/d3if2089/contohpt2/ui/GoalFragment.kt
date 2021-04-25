@@ -5,8 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.d3if2089.contohpt2.MainActivity
-import com.d3if2089.contohpt2.R
+import com.d3if2089.contohpt2.data.Goal
+import com.d3if2089.contohpt2.GoalAdapter
+import com.d3if2089.contohpt2.databinding.FragmentGoalBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +23,7 @@ class GoalFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: FragmentGoalBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +38,26 @@ class GoalFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_goal, container, false)
+        binding = FragmentGoalBinding.inflate(layoutInflater,container,false)
+        with(binding.goalRecycleView) {
+            adapter = GoalAdapter(getData())
+            setHasFixedSize(true)
+        }
+//        progressBar_goal.max = 10
+//        val currentProgress = 7
+//
+//        ObjectAnimator.ofInt(progressBar_goal, "progress",currentProgress)
+//            .setDuration(2000)
+//            .start()
+        return binding.root
+    }
+
+    private fun getData(): List<Goal> {
+        return listOf(
+            Goal("OKT",30000,20000),
+            Goal("NOV",30000,20000),
+            Goal("DES",30000,20000)
+        )
     }
 
     companion object {

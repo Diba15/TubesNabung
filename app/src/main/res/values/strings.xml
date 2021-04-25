@@ -8,7 +8,7 @@
     <string name="hello_goal">Hello Goal</string>
     <string name="hello_statistic">Hello Statistic</string>
     <string name="hello_wishlist">Hello Wishlist</string>
-    <string name="goal">Goal</string>
+    <string name="goal_title">Goal</string>
     <string name="statistic">Statistic</string>
     <string name="wishlist">Wishlist</string>
     <string name="tabunganku">Tabunganku:</string>
@@ -19,4 +19,6 @@
     <string name="konversi_uang">Konversi Uang</string>
     <string name="value_pemasukan">Rp. </string>
     <string name="user_name">Kelvin Pradiza</string>
+    <string name="terkumpul">Terkumpul:</string>
+    <string name="goal">Goal: </string>
 </resources>
