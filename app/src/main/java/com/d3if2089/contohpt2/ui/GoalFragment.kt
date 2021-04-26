@@ -1,13 +1,14 @@
 package com.d3if2089.contohpt2.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.d3if2089.contohpt2.data.Goal
 import com.d3if2089.contohpt2.GoalAdapter
+import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.databinding.FragmentGoalBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.android.synthetic.main.item_goal.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,26 +39,49 @@ class GoalFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentGoalBinding.inflate(layoutInflater,container,false)
+        binding = FragmentGoalBinding.inflate(layoutInflater, container, false)
         with(binding.goalRecycleView) {
             adapter = GoalAdapter(getData())
             setHasFixedSize(true)
         }
-//        progressBar_goal.max = 10
-//        val currentProgress = 7
-//
-//        ObjectAnimator.ofInt(progressBar_goal, "progress",currentProgress)
-//            .setDuration(2000)
-//            .start()
+        setHasOptionsMenu(true)
         return binding.root
     }
 
     private fun getData(): List<Goal> {
         return listOf(
-            Goal("OKT",30000,20000),
-            Goal("NOV",30000,20000),
-            Goal("DES",30000,20000)
+            Goal("OKT", 30000, 30000),
+            Goal("NOV", 30000, 20000),
+            Goal("DES", 30000, 15000),
+            Goal("JAN", 60000, 23000),
+            Goal("FEB", 100000, 50000),
+            Goal("MAR", 90000, 80000)
         )
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if (item.itemId == R.id.clearAll) {
+            clearData()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun clearData() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setMessage("Are you want to clear goal?")
+            .setPositiveButton("Clear") { _, _ ->
+                getData().drop(1)
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.cancel()
+            }
+            .show()
     }
 
     companion object {

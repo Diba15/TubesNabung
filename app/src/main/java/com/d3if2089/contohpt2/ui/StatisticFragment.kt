@@ -11,9 +11,6 @@ import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.anychart.charts.Pie
 import com.d3if2089.contohpt2.databinding.FragmentStatisticBinding
-import com.github.mikephil.charting.data.Entry
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.data.PieDataSet
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,8 +27,6 @@ class StatisticFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentStatisticBinding
-    private lateinit var anyChartView: AnyChartView
-    private lateinit var pie: Pie
     var months: Array<String> = arrayOf("Jan","Feb","Mar")
     var values: Array<Int> = arrayOf(3000,2000,3000)
 
@@ -48,23 +43,25 @@ class StatisticFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        anyChartView = binding.pieChart
-//        setPieChart()
+        setPieChart()
         binding = FragmentStatisticBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
-//    private fun setPieChart() {
-//        pie = AnyChart.pie()
-//        val dataEntries: ArrayList<DataEntry> = ArrayList()
-//
-//        for (i in 1..3) {
-//            dataEntries.add(ValueDataEntry(months.elementAt(i),values.elementAt(i)))
-//        }
-//
-//        pie.data(dataEntries)
-//        anyChartView.setChart(pie)
-//    }
+    private fun setPieChart() {
+
+        val anyChartView: AnyChartView = binding.pieChart
+        val pie: Pie = AnyChart.pie()
+        val dataEntries: MutableList<DataEntry> = ArrayList()
+        dataEntries.add(ValueDataEntry("Dimas",10000))
+        dataEntries.add(ValueDataEntry("Bagas",20000))
+        dataEntries.add(ValueDataEntry("Saputro",30000))
+        pie.data(dataEntries)
+        pie.title("History")
+        pie.labels().position("outside")
+        pie.legend().title().enabled(true)
+        anyChartView.setChart(pie)
+    }
 
     companion object {
         /**

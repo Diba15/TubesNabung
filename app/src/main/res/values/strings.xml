@@ -21,4 +21,5 @@
     <string name="user_name">Kelvin Pradiza</string>
     <string name="terkumpul">Terkumpul:</string>
     <string name="goal">Goal: </string>
+    <string name="delete_all">Delete All</string>
 </resources>
