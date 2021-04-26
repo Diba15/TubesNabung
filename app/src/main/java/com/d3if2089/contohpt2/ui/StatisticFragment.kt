@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.anychart.AnyChart
 import com.anychart.AnyChartView
 import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.anychart.charts.Pie
+import com.d3if2089.contohpt2.StatisticAdapter
+import com.d3if2089.contohpt2.data.Kategori
 import com.d3if2089.contohpt2.databinding.FragmentStatisticBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -41,27 +45,25 @@ class StatisticFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentStatisticBinding.inflate(layoutInflater,container,false)
+        with(binding.recyclerStatis) {
+            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
+            adapter = StatisticAdapter(getData())
+            setHasFixedSize(true)
+        }
         return binding.root
     }
 
-//    private fun setPieChart() {
-//
-//        val anyChartView: AnyChartView = binding.pieChart
-//        val pie: Pie = AnyChart.pie()
-//        val dataEntries: MutableList<DataEntry> = ArrayList()
-//        dataEntries.add(ValueDataEntry("Dimas",10000))
-//        dataEntries.add(ValueDataEntry("Bagas",20000))
-//        dataEntries.add(ValueDataEntry("Saputro",30000))
-//        pie.data(dataEntries)
-//        pie.title("History")
-//        pie.labels().position("outside")
-//        pie.legend().title().enabled(true)
-//        anyChartView.setChart(pie)
-//    }
-
+    private fun getData(): List<Kategori> {
+        return listOf(
+            Kategori("Pemasukan","Gajian",300000),
+            Kategori("Pengeluaran","Beli PS5",800000),
+            Kategori("Pemasukan","Bonus",200000),
+            Kategori("Pengeluaran","Makan",100000)
+        )
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
