@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.d3if2089.contohpt2.data.History
 import com.d3if2089.contohpt2.MainAdapter
 import com.d3if2089.contohpt2.databinding.FragmentProfileBinding
@@ -40,6 +42,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding = FragmentProfileBinding.inflate(layoutInflater, container , false)
         with(binding.recyclerView) {
+            addItemDecoration(DividerItemDecoration(context,RecyclerView.VERTICAL))
             adapter = MainAdapter(getData())
             setHasFixedSize(true)
         }
