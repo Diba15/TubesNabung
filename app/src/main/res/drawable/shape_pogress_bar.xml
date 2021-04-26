@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<rotate xmlns:android="http://schemas.android.com/apk/res/android">
+    <shape>
 
-    <size
-        android:width="76dip"
-        android:height="76dip"/>
+        <size
+            android:width="76dp"
+            android:height="76dp"/>
 
-    <gradient
-        android:angle="0"
-        android:endColor="@color/royal_blue"
-        android:startColor="@color/teal_200"
-        android:type="sweep"
-        android:useLevel="false"/>
+        <gradient
+            android:angle="0"
+            android:endColor="@color/royal_blue"
+            android:startColor="@color/splash_color"
+            android:useLevel="false"/>
 
-</shape>
+    </shape>
+</rotate>

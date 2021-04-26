@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.d3if2089.contohpt2.data.Goal
 import com.d3if2089.contohpt2.databinding.ItemGoalBinding
@@ -22,9 +23,6 @@ class GoalAdapter(private val data: List<Goal>) :
             binding.progressBarGoal.max = goal.goal
             val currentProgress = goal.terkumpul
             binding.progressBarGoal.progress = currentProgress
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                binding.progressBarGoal.progressTintList = ColorStateList.valueOf(Color.BLUE)
-            }
         }
     }
 

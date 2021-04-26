@@ -43,25 +43,24 @@ class StatisticFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        setPieChart()
         binding = FragmentStatisticBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
-    private fun setPieChart() {
-
-        val anyChartView: AnyChartView = binding.pieChart
-        val pie: Pie = AnyChart.pie()
-        val dataEntries: MutableList<DataEntry> = ArrayList()
-        dataEntries.add(ValueDataEntry("Dimas",10000))
-        dataEntries.add(ValueDataEntry("Bagas",20000))
-        dataEntries.add(ValueDataEntry("Saputro",30000))
-        pie.data(dataEntries)
-        pie.title("History")
-        pie.labels().position("outside")
-        pie.legend().title().enabled(true)
-        anyChartView.setChart(pie)
-    }
+//    private fun setPieChart() {
+//
+//        val anyChartView: AnyChartView = binding.pieChart
+//        val pie: Pie = AnyChart.pie()
+//        val dataEntries: MutableList<DataEntry> = ArrayList()
+//        dataEntries.add(ValueDataEntry("Dimas",10000))
+//        dataEntries.add(ValueDataEntry("Bagas",20000))
+//        dataEntries.add(ValueDataEntry("Saputro",30000))
+//        pie.data(dataEntries)
+//        pie.title("History")
+//        pie.labels().position("outside")
+//        pie.legend().title().enabled(true)
+//        anyChartView.setChart(pie)
+//    }
 
     companion object {
         /**

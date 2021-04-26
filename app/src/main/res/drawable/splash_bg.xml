@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/splash_color"/>
+
+    <item
+        android:gravity="center">
+
+        <bitmap
+            android:gravity="fill_horizontal|fill_vertical"
+            android:src="@drawable/group_8"/>
+    </item>
+    <item android:top="100dp">
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/logmo"/>
+    </item>
+</layer-list>
