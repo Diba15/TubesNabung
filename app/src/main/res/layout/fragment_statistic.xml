@@ -26,17 +26,15 @@
         app:layout_constraintBottom_toTopOf="@+id/batas_bawah"
         app:layout_constraintVertical_bias="1.0">
 
-        <TextView
+        <ImageView
             android:id="@+id/pie_chart"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@color/splash_color"
-            android:paddingTop="40dp"
-            android:text="Ceritanya Pie Chart"
-            android:textAlignment="center"
-            android:textColor="@color/white"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/group_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="20dp" />
+            android:contentDescription="@null" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main_month"
