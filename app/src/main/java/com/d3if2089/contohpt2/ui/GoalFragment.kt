@@ -3,12 +3,11 @@ package com.d3if2089.contohpt2.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import com.d3if2089.contohpt2.data.Goal
 import com.d3if2089.contohpt2.GoalAdapter
 import com.d3if2089.contohpt2.R
+import com.d3if2089.contohpt2.data.Goal
 import com.d3if2089.contohpt2.databinding.FragmentGoalBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.item_goal.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +24,14 @@ class GoalFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentGoalBinding
+    private var list = listOf(
+        Goal("OKT", 30000, 30000),
+        Goal("NOV", 30000, 20000),
+        Goal("DES", 30000, 15000),
+        Goal("JAN", 60000, 23000),
+        Goal("FEB", 100000, 50000),
+        Goal("MAR", 90000, 80000)
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,14 +56,7 @@ class GoalFragment : Fragment() {
     }
 
     private fun getData(): List<Goal> {
-        return listOf(
-            Goal("OKT", 30000, 30000),
-            Goal("NOV", 30000, 20000),
-            Goal("DES", 30000, 15000),
-            Goal("JAN", 60000, 23000),
-            Goal("FEB", 100000, 50000),
-            Goal("MAR", 90000, 80000)
-        )
+        return list
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
