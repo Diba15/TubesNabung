@@ -43,6 +43,4 @@ class GoalAdapter(private val data: List<Goal>) :
     override fun onBindViewHolder(holder: GoalAdapter.ViewHolder, position: Int) {
         holder.bind(data[position])
     }
-
-
 }

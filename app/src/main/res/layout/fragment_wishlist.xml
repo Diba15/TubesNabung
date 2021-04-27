@@ -13,13 +13,13 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/goal_recycleView"
+        android:id="@+id/wishlist_recycleView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@+id/batas"
         app:layout_constraintBottom_toTopOf="@id/batas_bawah"
-        tools:listitem="@layout/item_goal"/>
+        tools:listitem="@layout/item_wishlist"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"

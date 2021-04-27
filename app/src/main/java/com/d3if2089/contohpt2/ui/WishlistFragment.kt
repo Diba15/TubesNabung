@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.d3if2089.contohpt2.R
+import com.d3if2089.contohpt2.WishlistAdapter
+import com.d3if2089.contohpt2.data.WishList
+import com.d3if2089.contohpt2.databinding.FragmentWishlistBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +25,11 @@ class WishlistFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: FragmentWishlistBinding
+    private var list: MutableList<WishList> = listOf(
+        WishList("Meja Belajar",20000,20000,20),
+        WishList("Laptop",10000000,5000000,60)
+    ).toMutableList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +44,17 @@ class WishlistFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_wishlist, container, false)
+        binding = FragmentWishlistBinding.inflate(layoutInflater,container, false)
+        with(binding.wishlistRecycleView) {
+            adapter = WishlistAdapter(getData())
+            setHasFixedSize(true)
+        }
+        return binding.root
     }
 
+    fun getData(): MutableList<WishList> {
+        return list
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
