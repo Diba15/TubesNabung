@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.d3if2089.contohpt2.data.Goal
 import com.d3if2089.contohpt2.databinding.ItemGoalBinding
 import kotlinx.android.synthetic.main.item_goal.*
+import java.text.DecimalFormat
 
 class GoalAdapter(private val data: List<Goal>) :
     RecyclerView.Adapter<GoalAdapter.ViewHolder>() {
@@ -18,8 +19,11 @@ class GoalAdapter(private val data: List<Goal>) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(goal: Goal) = with(binding) {
             monthHistory.text = goal.month
-            valuePemasukan.text = "Rp. " + goal.terkumpul.toString()
-            valuePengeluaran.text = "Rp. " + goal.goal.toString()
+            val formatter = DecimalFormat("#,###")
+            var formatAngka = formatter.format(goal.terkumpul)
+            valuePemasukan.text = "Rp. $formatAngka"
+            formatAngka = formatter.format(goal.goal)
+            valuePengeluaran.text = "Rp. $formatAngka"
             binding.progressBarGoal.max = goal.goal
             val currentProgress = goal.terkumpul
             binding.progressBarGoal.progress = currentProgress

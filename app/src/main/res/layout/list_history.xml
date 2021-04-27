@@ -21,6 +21,7 @@
         android:id="@+id/text_pengeluaran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
         android:textColor="@color/red"
         android:textSize="5pt"
         android:layout_marginStart="16dp"
@@ -33,12 +34,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:fontFamily="sans-serif-condensed"
         android:gravity="end"
         android:textColor="@color/red"
         android:textSize="5pt"
         app:layout_constraintBottom_toBottomOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_pengeluaran"
         tools:text="- Rp.30.000.000" />
 
     <TextView
@@ -46,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/green"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="5pt"
         android:text="@string/pemasukan"
         app:layout_constraintStart_toStartOf="@id/text_pengeluaran"
@@ -56,12 +58,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:fontFamily="sans-serif-condensed"
         android:gravity="end"
         android:textColor="@color/green"
         android:textSize="5pt"
         app:layout_constraintTop_toBottomOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_pemasukan"
         tools:text="+ Rp.30.000.000" />
 
     <androidx.constraintlayout.widget.Guideline

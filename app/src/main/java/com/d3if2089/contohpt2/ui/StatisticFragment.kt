@@ -58,10 +58,10 @@ class StatisticFragment : Fragment() {
 
     private fun getData(): List<Kategori> {
         return listOf(
-            Kategori("Pemasukan","Gajian",300000),
-            Kategori("Pengeluaran","Beli PS5",800000),
-            Kategori("Pemasukan","Bonus",200000),
-            Kategori("Pengeluaran","Makan",100000)
+            Kategori("Pemasukan","Gajian",3000000),
+            Kategori("Pengeluaran","Beli PS5",8000000),
+            Kategori("Pemasukan","Bonus",2000000),
+            Kategori("Pengeluaran","Makan",1000000)
         )
     }
     companion object {

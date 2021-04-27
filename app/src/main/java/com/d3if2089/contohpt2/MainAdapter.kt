@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.d3if2089.contohpt2.data.History
 import com.d3if2089.contohpt2.databinding.ListHistoryBinding
+import java.text.DecimalFormat
 
 class MainAdapter(private val data: List<History>):
     RecyclerView.Adapter<MainAdapter.ViewHolder>() {
@@ -13,8 +14,11 @@ class MainAdapter(private val data: List<History>):
         RecyclerView.ViewHolder(binding.root) {
         fun bind(history: History) = with(binding) {
             monthHistory.text =history.month
-            valuePemasukan.text = "+ Rp. " + history.pemasukan.toString()
-            valuePengeluaran.text = "- Rp. " + history.pengeluaran.toString()
+            val formatter = DecimalFormat("#,###")
+            var formatAngka = formatter.format(history.pemasukan)
+            valuePemasukan.text = "+ Rp. $formatAngka"
+            formatAngka = formatter.format(history.pengeluaran)
+            valuePengeluaran.text = "- Rp. $formatAngka"
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainAdapter.ViewHolder {

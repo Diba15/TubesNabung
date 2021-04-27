@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.d3if2089.contohpt2.data.Kategori
 import com.d3if2089.contohpt2.databinding.ItemStatisticBinding
+import java.text.DecimalFormat
 
 class StatisticAdapter(private val data: List<Kategori>) :
     RecyclerView.Adapter<StatisticAdapter.ViewHolder>() {
@@ -17,8 +18,10 @@ class StatisticAdapter(private val data: List<Kategori>) :
             } else {
                 iconPemasukan.setImageResource(R.drawable.icon_pengeluaran)
             }
+            val formatter = DecimalFormat("#,###")
+            val formatAngka = formatter.format(kategori.value)
             namaKegiatan.text = kategori.name
-            valueHistory.text = "Rp. " + kategori.value
+            valueHistory.text = "Rp. $formatAngka"
         }
     }
 
