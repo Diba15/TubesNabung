@@ -29,13 +29,14 @@
         <TextView
             android:id="@+id/pie_chart"
             android:layout_width="match_parent"
-            android:paddingTop="40dp"
             android:layout_height="100dp"
-            android:background="@color/splash_color"
-            android:textColor="@color/white"
+            android:background="@color/green"
+            android:paddingTop="40dp"
             android:text="Ceritanya Pie Chart"
             android:textAlignment="center"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="20dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main_month"
