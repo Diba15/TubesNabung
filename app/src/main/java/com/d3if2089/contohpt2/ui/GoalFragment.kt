@@ -24,14 +24,14 @@ class GoalFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentGoalBinding
-    private var list = listOf(
+    private var list: MutableList<Goal> = listOf(
         Goal("OKT", 30000, 30000),
         Goal("NOV", 30000, 20000),
         Goal("DES", 30000, 15000),
         Goal("JAN", 60000, 23000),
         Goal("FEB", 100000, 50000),
         Goal("MAR", 90000, 80000)
-    )
+    ).toMutableList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +55,7 @@ class GoalFragment : Fragment() {
         return binding.root
     }
 
-    private fun getData(): List<Goal> {
+    private fun getData(): MutableList<Goal> {
         return list
     }
 
@@ -76,7 +76,7 @@ class GoalFragment : Fragment() {
         MaterialAlertDialogBuilder(requireContext())
             .setMessage("Are you want to clear goal?")
             .setPositiveButton("Clear") { _, _ ->
-                getData().drop(1)
+                list.clear()
             }
             .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.cancel()
