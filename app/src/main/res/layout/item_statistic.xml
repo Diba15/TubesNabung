@@ -17,6 +17,7 @@
         android:id="@+id/nama_kegiatan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:fontFamily="sans-serif-condensed"
         android:text="@string/pemasukan"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/black"
         android:text="Rp.2.000.000"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
