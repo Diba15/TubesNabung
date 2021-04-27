@@ -30,7 +30,7 @@
             android:id="@+id/pie_chart"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@color/green"
+            android:background="@color/splash_color"
             android:paddingTop="40dp"
             android:text="Ceritanya Pie Chart"
             android:textAlignment="center"
