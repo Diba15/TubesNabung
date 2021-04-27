@@ -23,14 +23,14 @@ class GoalFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentGoalBinding
-    private var list: MutableList<Goal> = listOf(
+    private var list: MutableList<Goal> = mutableListOf(
         Goal("OKT", 30000, 30000),
         Goal("NOV", 30000, 20000),
         Goal("DES", 30000, 15000),
         Goal("JAN", 60000, 23000),
         Goal("FEB", 100000, 50000),
         Goal("MAR", 90000, 80000)
-    ).toMutableList()
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
