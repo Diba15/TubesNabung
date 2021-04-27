@@ -1,15 +1,14 @@
-package com.d3if2089.contohpt2.ui
+package com.d3if2089.contohpt2.ui.statistic
 
-import android.app.FragmentManager
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.d3if2089.contohpt2.R
-import com.d3if2089.contohpt2.WishlistAdapter
-import com.d3if2089.contohpt2.data.WishList
-import com.d3if2089.contohpt2.databinding.FragmentWishlistBinding
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
+import com.d3if2089.contohpt2.data.Kategori
+import com.d3if2089.contohpt2.databinding.FragmentStatisticBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,18 +17,16 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [WishlistFragment.newInstance] factory method to
+ * Use the [StatisticFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class WishlistFragment : Fragment() {
+class StatisticFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentWishlistBinding
-    private var list: MutableList<WishList> = listOf(
-        WishList("Meja Belajar",20000,20000,20),
-        WishList("Laptop",10000000,5000000,60)
-    ).toMutableList()
+    private lateinit var binding: FragmentStatisticBinding
+    var months: Array<String> = arrayOf("Jan","Feb","Mar")
+    var values: Array<Int> = arrayOf(3000,2000,3000)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,18 +39,24 @@ class WishlistFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        binding = FragmentWishlistBinding.inflate(layoutInflater,container, false)
-        with(binding.wishlistRecycleView) {
-            adapter = WishlistAdapter(getData())
+        binding = FragmentStatisticBinding.inflate(layoutInflater,container,false)
+        with(binding.recyclerStatis) {
+            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
+            adapter = StatisticAdapter(getData())
             setHasFixedSize(true)
         }
         return binding.root
     }
 
-    fun getData(): MutableList<WishList> {
-        return list
+    private fun getData(): List<Kategori> {
+        return listOf(
+            Kategori("Pemasukan","Gajian",3000000),
+            Kategori("Pengeluaran","Beli PS5",8000000),
+            Kategori("Pemasukan","Bonus",2000000),
+            Kategori("Pengeluaran","Makan",1000000)
+        )
     }
     companion object {
         /**
@@ -62,12 +65,12 @@ class WishlistFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment WishlistFragment.
+         * @return A new instance of fragment StatisticFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            WishlistFragment().apply {
+            StatisticFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

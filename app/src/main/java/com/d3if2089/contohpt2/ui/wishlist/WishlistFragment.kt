@@ -1,15 +1,13 @@
-package com.d3if2089.contohpt2.ui
+package com.d3if2089.contohpt2.ui.wishlist
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
-import com.d3if2089.contohpt2.data.History
-import com.d3if2089.contohpt2.MainAdapter
-import com.d3if2089.contohpt2.databinding.FragmentProfileBinding
+import com.d3if2089.contohpt2.ui.wishlist.WishlistAdapter
+import com.d3if2089.contohpt2.data.WishList
+import com.d3if2089.contohpt2.databinding.FragmentWishlistBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,15 +16,18 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
+ * Use the [WishlistFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ProfileFragment : Fragment() {
-
-    private lateinit var binding: FragmentProfileBinding
+class WishlistFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: FragmentWishlistBinding
+    private var list: MutableList<WishList> = listOf(
+        WishList("Meja Belajar",20000,20000,20),
+        WishList("Laptop",10000000,5000000,60)
+    ).toMutableList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,15 +41,18 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentProfileBinding.inflate(layoutInflater, container , false)
-        with(binding.recyclerView) {
-            addItemDecoration(DividerItemDecoration(context,RecyclerView.VERTICAL))
-            adapter = MainAdapter(getData())
+        // Inflate the layout for this fragment
+        binding = FragmentWishlistBinding.inflate(layoutInflater,container, false)
+        with(binding.wishlistRecycleView) {
+            adapter = WishlistAdapter(getData())
             setHasFixedSize(true)
         }
         return binding.root
     }
 
+    fun getData(): MutableList<WishList> {
+        return list
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -56,27 +60,16 @@ class ProfileFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
+         * @return A new instance of fragment WishlistFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
+            WishlistFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
-    }
-
-    private fun getData(): List<History> {
-        return listOf(
-            History("OKT",3000000,3000000),
-            History("NOV",3000000, 3000000),
-            History("DES",3000000,3000000),
-            History("JAN",3000000,3000000),
-            History("FEB",3000000,3000000),
-            History("MAR",3000000,3000000)
-        )
     }
 }

@@ -1,4 +1,4 @@
-package com.d3if2089.contohpt2
+package com.d3if2089.contohpt2.ui.profile
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,8 @@ import com.d3if2089.contohpt2.data.History
 import com.d3if2089.contohpt2.databinding.ListHistoryBinding
 import java.text.DecimalFormat
 
-class MainAdapter(private val data: List<History>):
-    RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class ProfileAdapter(private val data: List<History>):
+    RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: ListHistoryBinding):
         RecyclerView.ViewHolder(binding.root) {
@@ -21,7 +21,7 @@ class MainAdapter(private val data: List<History>):
             valuePengeluaran.text = "- Rp. $formatAngka"
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater =LayoutInflater.from(parent.context)
         val binding =ListHistoryBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
@@ -31,7 +31,7 @@ class MainAdapter(private val data: List<History>):
         return data.size
     }
 
-    override fun onBindViewHolder(holder: MainAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(data[position])
     }
 

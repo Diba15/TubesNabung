@@ -1,4 +1,4 @@
-package com.d3if2089.contohpt2
+package com.d3if2089.contohpt2.ui.wishlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -26,7 +26,7 @@ class WishlistAdapter(private val data: List<WishList>) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WishlistAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemWishlistBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
@@ -36,7 +36,7 @@ class WishlistAdapter(private val data: List<WishList>) :
         return data.size
     }
 
-    override fun onBindViewHolder(holder: WishlistAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(data[position])
     }
 

@@ -1,4 +1,4 @@
-package com.d3if2089.contohpt2.ui
+package com.d3if2089.contohpt2.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.anychart.AnyChart
-import com.anychart.AnyChartView
-import com.anychart.chart.common.dataentry.DataEntry
-import com.anychart.chart.common.dataentry.ValueDataEntry
-import com.anychart.charts.Pie
-import com.d3if2089.contohpt2.StatisticAdapter
-import com.d3if2089.contohpt2.data.Kategori
-import com.d3if2089.contohpt2.databinding.FragmentStatisticBinding
+import com.d3if2089.contohpt2.data.History
+import com.d3if2089.contohpt2.databinding.FragmentProfileBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,16 +17,15 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [StatisticFragment.newInstance] factory method to
+ * Use the [ProfileFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class StatisticFragment : Fragment() {
+class ProfileFragment : Fragment() {
+
+    private lateinit var binding: FragmentProfileBinding
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentStatisticBinding
-    var months: Array<String> = arrayOf("Jan","Feb","Mar")
-    var values: Array<Int> = arrayOf(3000,2000,3000)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,25 +38,16 @@ class StatisticFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentStatisticBinding.inflate(layoutInflater,container,false)
-        with(binding.recyclerStatis) {
-            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
-            adapter = StatisticAdapter(getData())
+    ): View? {
+        binding = FragmentProfileBinding.inflate(layoutInflater, container , false)
+        with(binding.recyclerView) {
+            addItemDecoration(DividerItemDecoration(context,RecyclerView.VERTICAL))
+            adapter = ProfileAdapter(getData())
             setHasFixedSize(true)
         }
         return binding.root
     }
 
-    private fun getData(): List<Kategori> {
-        return listOf(
-            Kategori("Pemasukan","Gajian",3000000),
-            Kategori("Pengeluaran","Beli PS5",8000000),
-            Kategori("Pemasukan","Bonus",2000000),
-            Kategori("Pengeluaran","Makan",1000000)
-        )
-    }
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -71,16 +55,27 @@ class StatisticFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment StatisticFragment.
+         * @return A new instance of fragment ProfileFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            StatisticFragment().apply {
+            ProfileFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private fun getData(): List<History> {
+        return listOf(
+            History("OKT",3000000,3000000),
+            History("NOV",3000000, 3000000),
+            History("DES",3000000,3000000),
+            History("JAN",3000000,3000000),
+            History("FEB",3000000,3000000),
+            History("MAR",3000000,3000000)
+        )
     }
 }

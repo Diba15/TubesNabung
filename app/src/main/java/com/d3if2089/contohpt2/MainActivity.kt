@@ -1,15 +1,13 @@
 package com.d3if2089.contohpt2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.d3if2089.contohpt2.databinding.ActivityMainBinding
-import com.d3if2089.contohpt2.ui.GoalFragment
-import com.d3if2089.contohpt2.ui.ProfileFragment
-import com.d3if2089.contohpt2.ui.StatisticFragment
-import com.d3if2089.contohpt2.ui.WishlistFragment
-import com.google.android.material.bottomnavigation.BottomNavigationMenu
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.d3if2089.contohpt2.ui.goal.GoalFragment
+import com.d3if2089.contohpt2.ui.profile.ProfileFragment
+import com.d3if2089.contohpt2.ui.statistic.StatisticFragment
+import com.d3if2089.contohpt2.ui.wishlist.WishlistFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

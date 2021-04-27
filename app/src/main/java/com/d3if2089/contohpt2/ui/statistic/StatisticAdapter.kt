@@ -1,8 +1,9 @@
-package com.d3if2089.contohpt2
+package com.d3if2089.contohpt2.ui.statistic
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.data.Kategori
 import com.d3if2089.contohpt2.databinding.ItemStatisticBinding
 import java.text.DecimalFormat
