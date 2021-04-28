@@ -18,6 +18,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun skip() {
+        //Berpindah halaman menggunakan Intent
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

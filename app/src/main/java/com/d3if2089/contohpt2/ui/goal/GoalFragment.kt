@@ -46,10 +46,12 @@ class GoalFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentGoalBinding.inflate(layoutInflater, container, false)
+        //Membuat Recycler View memiliki data
         with(binding.goalRecycleView) {
             adapter = GoalAdapter(getData())
             setHasFixedSize(true)
         }
+        //Membuat agar menu appbar muncul
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -58,13 +60,13 @@ class GoalFragment : Fragment() {
         return list
     }
 
+    //Inisiasi Menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         if (item.itemId == R.id.clearAll) {
             clearData()
         }
@@ -72,6 +74,7 @@ class GoalFragment : Fragment() {
     }
 
     private fun clearData() {
+        //Membuat pop up dialog
         MaterialAlertDialogBuilder(requireContext())
             .setMessage("Are you want to clear goal?")
             .setPositiveButton("Clear") { _, _ ->

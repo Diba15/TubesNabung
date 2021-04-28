@@ -58,6 +58,7 @@ class ProfileFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //Tombol Logout/Login
         if (item.itemId == R.id.logout) {
             val intent = Intent(activity, WelcomeActivity::class.java)
             startActivity(intent)

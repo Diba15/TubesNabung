@@ -23,9 +23,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+        //Membuat agar bisa menggunakan custom appbar
         setSupportActionBar(binding.layoutToolbar)
-
+        //mengatur halaman awal fragment
         currentPage(WishlistFragment())
+        //Membuat agar navigasi berfungsi
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.wishlist -> {
