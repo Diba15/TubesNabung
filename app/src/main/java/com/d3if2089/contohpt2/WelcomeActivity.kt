@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.d3if2089.contohpt2.databinding.ActivityWelcomeBinding
+import com.d3if2089.contohpt2.ui.statistic.StatisticFragment
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -13,7 +14,7 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+//        binding.loginButton.setOnClickListener { login() }
         binding.skipAccount.setOnClickListener { skip() }
     }
 
@@ -23,4 +24,9 @@ class WelcomeActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+//    private fun login() {
+//        val intent = Intent(this, LoginFragment::class.java)
+//        startActivity(intent)
+//    }
 }
