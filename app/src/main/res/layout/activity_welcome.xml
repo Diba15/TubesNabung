@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/splash_color"
+    android:background="@color/royal_blue"
     tools:context=".WelcomeActivity">
 
     <ImageView
@@ -36,7 +36,7 @@
         android:id="@+id/skipAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Skip For Now"
+        android:text="@string/skip_for_now"
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
         android:paddingTop="20dp"
@@ -49,24 +49,27 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:fontFamily="sans-serif-condensed"
-        android:background="@drawable/shape_button"
         android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/logmoText"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/logmoText"
+        app:strokeColor="@color/white"
+        app:strokeWidth="2dp" />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
-        android:fontFamily="sans-serif-condensed"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/create_account"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:strokeColor="@color/white"
+        app:strokeWidth="2dp" />
 
 
 

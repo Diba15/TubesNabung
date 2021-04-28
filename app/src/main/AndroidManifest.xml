@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ContohPT2">
-        <activity android:name=".WelcomeActivity"
-            android:theme="@style/SplashTheme"/>
+        <activity android:name=".WelcomeActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

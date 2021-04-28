@@ -20,4 +20,8 @@
     <string name="tambah">Tambah</string>
     <string name="hari_lagi">Hari Lagi</string>
     <string name="deadline">Deadline</string>
+    <string name="logout">Logout</string>
+    <string name="skip_for_now">Skip For Now</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
 </resources>

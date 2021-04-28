@@ -1,12 +1,14 @@
 package com.d3if2089.contohpt2.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.d3if2089.contohpt2.MainActivity
+import com.d3if2089.contohpt2.R
+import com.d3if2089.contohpt2.WelcomeActivity
 import com.d3if2089.contohpt2.data.History
 import com.d3if2089.contohpt2.databinding.FragmentProfileBinding
 
@@ -23,6 +25,7 @@ private const val ARG_PARAM2 = "param2"
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -39,13 +42,28 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentProfileBinding.inflate(layoutInflater, container , false)
+        binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         with(binding.recyclerView) {
-            addItemDecoration(DividerItemDecoration(context,RecyclerView.VERTICAL))
+            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
             adapter = ProfileAdapter(getData())
             setHasFixedSize(true)
         }
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_profile, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.logout) {
+            val intent = Intent(activity, WelcomeActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {
@@ -70,12 +88,12 @@ class ProfileFragment : Fragment() {
 
     private fun getData(): List<History> {
         return listOf(
-            History("OKT",3000000,3000000),
-            History("NOV",3000000, 3000000),
-            History("DES",3000000,3000000),
-            History("JAN",3000000,3000000),
-            History("FEB",3000000,3000000),
-            History("MAR",3000000,3000000)
+            History("OKT", 3000000, 3000000),
+            History("NOV", 3000000, 3000000),
+            History("DES", 3000000, 3000000),
+            History("JAN", 3000000, 3000000),
+            History("FEB", 3000000, 3000000),
+            History("MAR", 3000000, 3000000)
         )
     }
 }
