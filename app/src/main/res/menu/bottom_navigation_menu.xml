@@ -4,7 +4,7 @@
     <item
         android:id="@+id/wishlist"
         android:enabled="true"
-        android:icon="@drawable/wishlist"
+        android:icon="@drawable/favorites"
         android:title="Wishlist"/>
     <item
         android:id="@+id/goal"
@@ -14,12 +14,12 @@
     <item
         android:id="@+id/statistik"
         android:enabled="true"
-        android:icon="@drawable/ic_action_name"
+        android:icon="@drawable/chart"
         android:title="Statistic"/>
     <item
         android:id="@+id/profile"
         android:enabled="true"
-        android:icon="@drawable/mood"
+        android:icon="@drawable/profile"
         android:title="Profile"/>
 
 

@@ -1,10 +1,9 @@
 package com.d3if2089.contohpt2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.d3if2089.contohpt2.databinding.ActivityWelcomeBinding
-import com.d3if2089.contohpt2.ui.statistic.StatisticFragment
 
 class WelcomeActivity : AppCompatActivity() {
 
