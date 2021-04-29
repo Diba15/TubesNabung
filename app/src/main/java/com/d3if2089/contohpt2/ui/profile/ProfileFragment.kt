@@ -4,11 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
-import com.d3if2089.contohpt2.MainActivity
 import com.d3if2089.contohpt2.R
-import com.d3if2089.contohpt2.WelcomeActivity
+import com.d3if2089.contohpt2.ui.WelcomeActivity
 import com.d3if2089.contohpt2.data.History
 import com.d3if2089.contohpt2.databinding.FragmentProfileBinding
 
@@ -43,11 +40,6 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
-        with(binding.recyclerView) {
-            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
-            adapter = ProfileAdapter(getData())
-            setHasFixedSize(true)
-        }
         setHasOptionsMenu(true)
         return binding.root
     }
