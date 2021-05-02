@@ -7,8 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.data.Kategori
 import com.d3if2089.contohpt2.databinding.FragmentStatisticBinding
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +52,7 @@ class StatisticFragment : Fragment() {
             adapter = StatisticAdapter(getData())
             setHasFixedSize(true)
         }
+        setLineChartData()
         return binding.root
     }
 
@@ -76,5 +82,45 @@ class StatisticFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    fun setLineChartData(){
+        val lineChart = binding.pieChart
+
+
+        val xvalue = ArrayList<String>()
+        xvalue.add("")
+        xvalue.add("")
+        xvalue.add("")
+        xvalue.add("")
+        xvalue.add("")
+
+        val lineentry = ArrayList<Entry>()
+        lineentry.add(Entry(1000000f,0))
+        lineentry.add(Entry(3000000f,1))
+        lineentry.add(Entry(8000000f,2))
+        lineentry.add(Entry(4000000f,3))
+        lineentry.add(Entry(6000000f,4))
+
+        val lineentry1 = ArrayList<Entry>()
+        lineentry1.add(Entry(5000000f,0))
+        lineentry1.add(Entry(4000000f,1))
+        lineentry1.add(Entry(6000000f,2))
+        lineentry1.add(Entry(8000000f,3))
+        lineentry1.add(Entry(2000000f,4))
+
+        val linedataset = LineDataSet(lineentry,"Pemasukan")
+        linedataset.color= resources.getColor(R.color.green)
+
+        val linedataset1 = LineDataSet(lineentry1,"Pengeluaran")
+        linedataset1.color= resources.getColor(R.color.red)
+
+        val finaldataset = ArrayList<LineDataSet>()
+        finaldataset.add(linedataset)
+        finaldataset.add(linedataset1)
+
+        val data = LineData(xvalue, finaldataset as List<ILineDataSet>?)
+        lineChart.data = data
+        lineChart.setBackgroundColor(resources.getColor(R.color.white))
     }
 }
