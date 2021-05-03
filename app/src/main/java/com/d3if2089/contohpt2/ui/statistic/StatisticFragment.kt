@@ -116,7 +116,7 @@ class StatisticFragment : Fragment() {
         yRight.setLabelCount(0, true)
         lineChart.setDescription("MEI")
         lineChart.setDescriptionColor(R.color.black)
-        lineChart.setDescriptionTextSize(20f)
+        lineChart.setDescriptionTextSize(10f)
 
 
         val data = LineData(xvalue, finaldataset as List<ILineDataSet>?)
