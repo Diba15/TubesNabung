@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.data.Goal
 import com.d3if2089.contohpt2.databinding.FragmentGoalBinding
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 // TODO: Rename parameter arguments, choose names that match
@@ -53,6 +56,7 @@ class GoalFragment : Fragment() {
         }
         //Membuat agar menu appbar muncul
         setHasOptionsMenu(true)
+        setBarChart()
         return binding.root
     }
 
@@ -84,6 +88,53 @@ class GoalFragment : Fragment() {
                 dialog.cancel()
             }
             .show()
+    }
+
+    private fun setBarChart() {
+        val barChart = binding.barChart
+        val yAxis = barChart.axisRight
+        val xAxis = barChart.xAxis
+
+        val xValues = ArrayList<String>()
+        xValues.add("OKT")
+        xValues.add("NOV")
+        xValues.add("DES")
+        xValues.add("JAN")
+        xValues.add("FEB")
+        xValues.add("MAR")
+
+        val barEntries = ArrayList<BarEntry>()
+        barEntries.add(BarEntry(30000f, 0))
+        barEntries.add(BarEntry(20000f, 1))
+        barEntries.add(BarEntry(15000f, 2))
+        barEntries.add(BarEntry(23000f, 3))
+        barEntries.add(BarEntry(50000f, 4))
+        barEntries.add(BarEntry(80000f, 5))
+
+        val barEntries1 = ArrayList<BarEntry>()
+        barEntries1.add(BarEntry(30000f, 0))
+        barEntries1.add(BarEntry(30000f, 1))
+        barEntries1.add(BarEntry(30000f, 2))
+        barEntries1.add(BarEntry(60000f, 3))
+        barEntries1.add(BarEntry(100000f, 4))
+        barEntries1.add(BarEntry(90000f, 5))
+
+        val barDataSet = BarDataSet(barEntries,"Terkumpul")
+        val barDataSet1 = BarDataSet(barEntries1,"Goal")
+        barDataSet.color= resources.getColor(R.color.royal_blue)
+        barDataSet1.color= resources.getColor(R.color.green)
+
+        val finalDataSet = ArrayList<BarDataSet>()
+        finalDataSet.add(barDataSet)
+        finalDataSet.add(barDataSet1)
+
+        val data = BarData(xValues,finalDataSet as List<BarDataSet>?)
+        yAxis.setLabelCount(0, true)
+        xAxis.setLabelsToSkip(4)
+        barChart.setDescription(null)
+
+        barChart.data = data
+        barChart.setBackgroundColor(resources.getColor(R.color.white))
     }
 
     companion object {
