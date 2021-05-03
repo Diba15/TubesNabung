@@ -86,41 +86,42 @@ class StatisticFragment : Fragment() {
 
     fun setLineChartData(){
         val lineChart = binding.pieChart
-
+        val yRight = lineChart.axisRight
 
         val xvalue = ArrayList<String>()
         xvalue.add("")
         xvalue.add("")
-        xvalue.add("")
-        xvalue.add("")
-        xvalue.add("")
+
 
         val lineentry = ArrayList<Entry>()
-        lineentry.add(Entry(1000000f,0))
-        lineentry.add(Entry(3000000f,1))
-        lineentry.add(Entry(8000000f,2))
-        lineentry.add(Entry(4000000f,3))
-        lineentry.add(Entry(6000000f,4))
+        lineentry.add(Entry(3000000f,0))
+        lineentry.add(Entry(2000000f,1))
 
         val lineentry1 = ArrayList<Entry>()
-        lineentry1.add(Entry(5000000f,0))
-        lineentry1.add(Entry(4000000f,1))
-        lineentry1.add(Entry(6000000f,2))
-        lineentry1.add(Entry(8000000f,3))
-        lineentry1.add(Entry(2000000f,4))
+        lineentry1.add(Entry(8000000f,0))
+        lineentry1.add(Entry(1000000f,1))
 
         val linedataset = LineDataSet(lineentry,"Pemasukan")
+        linedataset.setDrawCircles(false)
         linedataset.color= resources.getColor(R.color.green)
 
         val linedataset1 = LineDataSet(lineentry1,"Pengeluaran")
+        linedataset1.setDrawCircles(false)
         linedataset1.color= resources.getColor(R.color.red)
 
         val finaldataset = ArrayList<LineDataSet>()
         finaldataset.add(linedataset)
         finaldataset.add(linedataset1)
 
+        yRight.setLabelCount(0, true)
+        lineChart.setDescription("MEI")
+        lineChart.setDescriptionColor(R.color.black)
+        lineChart.setDescriptionTextSize(20f)
+
+
         val data = LineData(xvalue, finaldataset as List<ILineDataSet>?)
         lineChart.data = data
+        lineChart.invalidate()
         lineChart.setBackgroundColor(resources.getColor(R.color.white))
     }
 }
