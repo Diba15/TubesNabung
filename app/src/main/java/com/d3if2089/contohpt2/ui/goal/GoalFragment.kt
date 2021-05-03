@@ -46,7 +46,7 @@ class GoalFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentGoalBinding.inflate(layoutInflater, container, false)
         //Membuat Recycler View memiliki data
@@ -111,22 +111,12 @@ class GoalFragment : Fragment() {
         barEntries.add(BarEntry(50000f, 4))
         barEntries.add(BarEntry(80000f, 5))
 
-        val barEntries1 = ArrayList<BarEntry>()
-        barEntries1.add(BarEntry(30000f, 0))
-        barEntries1.add(BarEntry(30000f, 1))
-        barEntries1.add(BarEntry(30000f, 2))
-        barEntries1.add(BarEntry(60000f, 3))
-        barEntries1.add(BarEntry(100000f, 4))
-        barEntries1.add(BarEntry(90000f, 5))
 
         val barDataSet = BarDataSet(barEntries,"Terkumpul")
-        val barDataSet1 = BarDataSet(barEntries1,"Goal")
         barDataSet.color= resources.getColor(R.color.royal_blue)
-        barDataSet1.color= resources.getColor(R.color.green)
 
         val finalDataSet = ArrayList<BarDataSet>()
         finalDataSet.add(barDataSet)
-        finalDataSet.add(barDataSet1)
 
         val data = BarData(xValues,finalDataSet as List<BarDataSet>?)
         yAxis.setLabelCount(0, true)

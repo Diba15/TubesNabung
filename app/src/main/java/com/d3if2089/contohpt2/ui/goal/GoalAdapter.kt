@@ -1,5 +1,6 @@
 package com.d3if2089.contohpt2.ui.goal
 
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +23,11 @@ class GoalAdapter(private val data: List<Goal>) :
             binding.progressBarGoal.max = goal.goal
             val currentProgress = goal.terkumpul
             binding.progressBarGoal.progress = currentProgress
+
+            val percentage = ((currentProgress.toDouble() /
+                    binding.progressBarGoal.max) * 100).toInt()
+
+            goalPercentage.text = "$percentage%"
         }
     }
 
