@@ -23,6 +23,7 @@ class WishlistAdapter(private val data: List<WishList>) :
             binding.progressBarGoal.max = wishList.goal
             val currentProgress = wishList.terkumpul
             binding.progressBarGoal.progress = currentProgress
+            wishlistImage.setImageResource(wishList.imageResId)
         }
     }
 
