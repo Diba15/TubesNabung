@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/register_tl"
+        app:layout_constraintBottom_toTopOf="@id/name_regis_tl"
         android:contentDescription="@null"/>
 
     <ImageView
@@ -57,9 +57,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appIcon"
-        app:layout_constraintBottom_toTopOf="@id/register_tl"
+        app:layout_constraintBottom_toTopOf="@id/name_regis_tl"
         android:contentDescription="@null"/>
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_regis_tl"
+        style="@style/inputLayout_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-condensed"
+        app:boxStrokeColor="@color/white"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:prefixTextColor="@color/white"
+        android:hint="Masukkan Nama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logmoText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_editText"
+            android:maxLines="1"
+            android:lines="1"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/register_tl"
@@ -76,7 +104,7 @@
         android:hint="@string/hint_username_register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logmoText">
+        app:layout_constraintTop_toBottomOf="@+id/name_regis_tl">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username_editText"
