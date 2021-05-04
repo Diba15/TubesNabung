@@ -30,8 +30,8 @@ class StatisticFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentStatisticBinding
-    var months: Array<String> = arrayOf("Jan","Feb","Mar")
-    var values: Array<Int> = arrayOf(3000,2000,3000)
+    var months: Array<String> = arrayOf("Jan", "Feb", "Mar")
+    var values: Array<Int> = arrayOf(3000, 2000, 3000)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,7 @@ class StatisticFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentStatisticBinding.inflate(layoutInflater,container,false)
+        binding = FragmentStatisticBinding.inflate(layoutInflater, container, false)
         with(binding.recyclerStatis) {
             addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
             adapter = StatisticAdapter(getData())
@@ -58,12 +58,13 @@ class StatisticFragment : Fragment() {
 
     private fun getData(): List<Kategori> {
         return listOf(
-            Kategori("Pemasukan","Gajian",3000000),
-            Kategori("Pengeluaran","Beli PS5",8000000),
-            Kategori("Pemasukan","Bonus",2000000),
-            Kategori("Pengeluaran","Makan",1000000)
+            Kategori("Pemasukan", "Gajian", 3000000),
+            Kategori("Pengeluaran", "Beli PS5", 8000000),
+            Kategori("Pemasukan", "Bonus", 2000000),
+            Kategori("Pengeluaran", "Makan", 1000000)
         )
     }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -84,9 +85,10 @@ class StatisticFragment : Fragment() {
             }
     }
 
-    fun setLineChartData(){
+    private fun setLineChartData() {
         val lineChart = binding.pieChart
         val yRight = lineChart.axisRight
+        val yLeft = lineChart.axisLeft
 
         val xvalue = ArrayList<String>()
         xvalue.add("")
@@ -94,26 +96,29 @@ class StatisticFragment : Fragment() {
 
 
         val lineentry = ArrayList<Entry>()
-        lineentry.add(Entry(3000000f,0))
-        lineentry.add(Entry(2000000f,1))
+        lineentry.add(Entry(3000000f, 0))
+        lineentry.add(Entry(2000000f, 1))
 
         val lineentry1 = ArrayList<Entry>()
-        lineentry1.add(Entry(8000000f,0))
-        lineentry1.add(Entry(1000000f,1))
+        lineentry1.add(Entry(8000000f, 0))
+        lineentry1.add(Entry(1000000f, 1))
 
-        val linedataset = LineDataSet(lineentry,"Pemasukan")
+        val linedataset = LineDataSet(lineentry, "Pemasukan")
         linedataset.setDrawCircles(false)
-        linedataset.color= resources.getColor(R.color.green)
+        linedataset.color = resources.getColor(R.color.green)
 
-        val linedataset1 = LineDataSet(lineentry1,"Pengeluaran")
+        val linedataset1 = LineDataSet(lineentry1, "Pengeluaran")
         linedataset1.setDrawCircles(false)
-        linedataset1.color= resources.getColor(R.color.red)
+        linedataset1.color = resources.getColor(R.color.red)
 
         val finaldataset = ArrayList<LineDataSet>()
         finaldataset.add(linedataset)
         finaldataset.add(linedataset1)
 
         yRight.setLabelCount(0, true)
+        yLeft.setLabelCount(5, true)
+        yLeft.setStartAtZero(true)
+        yRight.setStartAtZero(true)
         lineChart.setDescription("MEI")
         lineChart.setDescriptionColor(R.color.black)
         lineChart.setDescriptionTextSize(10f)
