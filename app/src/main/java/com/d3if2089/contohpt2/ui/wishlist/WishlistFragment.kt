@@ -49,12 +49,18 @@ class WishlistFragment : Fragment() {
             adapter = WishlistAdapter(getData())
             setHasFixedSize(true)
         }
+//        binding.floatingAddButton.setOnClickListener {
+//            view?.findNavController()?.navigate(
+//                R.id.action_wishlistFragment_to_addWishlist
+//            )
+//        }
         return binding.root
     }
 
     private fun getData(): MutableList<WishList> {
         return list
     }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
