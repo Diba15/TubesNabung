@@ -57,15 +57,5 @@
 
     <!--    Nanti disini tambahin yang bagus apa ya!-->
 
-    <Button
-        android:id="@+id/button_konversi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/radius_button"
-        android:text="@string/konversi_uang"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabungan" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

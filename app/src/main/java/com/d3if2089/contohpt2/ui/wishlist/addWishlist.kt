@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.d3if2089.contohpt2.R
+import com.d3if2089.contohpt2.databinding.FragmentAddWishlistBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private  lateinit var binding: FragmentAddWishlistBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -33,9 +35,11 @@ class addWishlist : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_wishlist, container, false)
+        binding = FragmentAddWishlistBinding.inflate(layoutInflater, container, false)
+
+        return binding.root
     }
 
     companion object {
