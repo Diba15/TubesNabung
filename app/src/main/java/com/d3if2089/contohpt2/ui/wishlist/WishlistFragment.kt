@@ -49,11 +49,11 @@ class WishlistFragment : Fragment() {
             adapter = WishlistAdapter(getData())
             setHasFixedSize(true)
         }
-//        binding.floatingAddButton.setOnClickListener {
-//            view?.findNavController()?.navigate(
-//                R.id.action_wishlistFragment_to_addWishlist
-//            )
-//        }
+        binding.floatingAddButton.setOnClickListener {
+            view?.findNavController()?.navigate(
+                R.id.action_wishlistFragment_to_addWishlist
+            )
+        }
         return binding.root
     }
 
