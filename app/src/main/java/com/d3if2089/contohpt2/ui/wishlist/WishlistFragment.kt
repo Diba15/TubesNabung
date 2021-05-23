@@ -1,13 +1,12 @@
 package com.d3if2089.contohpt2.ui.wishlist
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import com.d3if2089.contohpt2.R
-import com.d3if2089.contohpt2.ui.wishlist.WishlistAdapter
 import com.d3if2089.contohpt2.data.WishList
 import com.d3if2089.contohpt2.databinding.FragmentWishlistBinding
 
@@ -50,9 +49,7 @@ class WishlistFragment : Fragment() {
             setHasFixedSize(true)
         }
         binding.floatingAddButton.setOnClickListener {
-            view?.findNavController()?.navigate(
-                R.id.action_wishlistFragment_to_addWishlist
-            )
+            startActivity(Intent(context, AddWishlist::class.java))
         }
         return binding.root
     }

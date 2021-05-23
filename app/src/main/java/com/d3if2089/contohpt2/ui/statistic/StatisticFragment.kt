@@ -1,5 +1,6 @@
 package com.d3if2089.contohpt2.ui.statistic
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.data.Kategori
 import com.d3if2089.contohpt2.databinding.FragmentStatisticBinding
+import com.d3if2089.contohpt2.ui.wishlist.AddWishlist
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
@@ -53,6 +55,9 @@ class StatisticFragment : Fragment() {
             setHasFixedSize(true)
         }
         setLineChartData()
+        binding.floatingButtonStatistic.setOnClickListener {
+            startActivity(Intent(context, AddStatistic::class.java))
+        }
         return binding.root
     }
 
