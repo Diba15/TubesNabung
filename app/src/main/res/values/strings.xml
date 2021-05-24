@@ -39,4 +39,5 @@
     <string name="hint_deadline">Masukan Target Deadline</string>
     <string name="hint_nominal">Masukan Nominal</string>
     <string name="hint_keterangan">Masukan Keterangan</string>
+    <string name="image_hint">click to add image</string>
 </resources>

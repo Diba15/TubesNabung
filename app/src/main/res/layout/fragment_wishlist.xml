@@ -16,6 +16,7 @@
         android:id="@+id/wishlist_recycleView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingBottom="15dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/batas_bawah"
         app:layout_constraintTop_toBottomOf="@+id/batas"
