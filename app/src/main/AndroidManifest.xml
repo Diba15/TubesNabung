@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ContohPT2">
-        <activity android:name=".ui.statistic.AddStatistic"
+        <activity android:name=".DetailWishlist"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.d3if2089.contohpt2.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.statistic.AddStatistic"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
             <meta-data
@@ -24,12 +32,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.d3if2089.contohpt2.MainActivity" />
         </activity>
-        <activity android:name=".ui.auth.RegisterActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.auth.LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.WelcomeActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.WelcomeActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

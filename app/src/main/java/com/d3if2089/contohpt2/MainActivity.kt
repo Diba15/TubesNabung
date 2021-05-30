@@ -34,8 +34,6 @@ class MainActivity : AppCompatActivity() {
         //Membuat agar bisa menggunakan custom appbar
         setSupportActionBar(binding.layoutToolbar)
 
-        //Membuat agar bisa menggunakan custom appbar
-        setSupportActionBar(binding.layoutToolbar)
         //mengatur halaman awal fragment
         currentPage(WishlistFragment())
         //Membuat agar navigasi berfungsi

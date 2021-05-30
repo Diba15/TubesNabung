@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.d3if2089.contohpt2.DetailWishlist
 import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.data.WishList
 import com.d3if2089.contohpt2.databinding.FragmentWishlistBinding
@@ -25,10 +26,7 @@ class WishlistFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentWishlistBinding
-    private var list: MutableList<WishList> = listOf(
-        WishList("Meja Belajar",20000, R.drawable.meja_belajar,20000,20),
-        WishList("Laptop",10000000,R.drawable.laptop,5000000,60)
-    ).toMutableList()
+    private lateinit var wishlistAdapter: WishlistAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,18 +42,39 @@ class WishlistFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentWishlistBinding.inflate(layoutInflater,container, false)
-        with(binding.wishlistRecycleView) {
-            adapter = WishlistAdapter(getData())
-            setHasFixedSize(true)
-        }
         binding.floatingAddButton.setOnClickListener {
             startActivity(Intent(context, AddWishlist::class.java))
         }
+        getMenu()
         return binding.root
     }
 
-    private fun getData(): MutableList<WishList> {
-        return list
+    private fun getMenu() {
+        val list: MutableList<WishList> = listOf(
+            WishList("Meja Belajar",20000, R.drawable.meja_belajar,20000,20),
+            WishList("Laptop",10000000,R.drawable.laptop,5000000,60)
+        ).toMutableList()
+
+        wishlistAdapter = WishlistAdapter(list) { _, item ->
+
+            val bundleStatus = Bundle()
+            with(bundleStatus) {
+                putString("nama", item.nama)
+                putInt("goal",item.goal)
+                putInt("terkumpul",item.terkumpul)
+                putInt("jumlahHari",item.jumlahHari)
+                putInt("imageId",item.imageResId)
+            }
+
+            val intent = Intent(context, DetailWishlist::class.java)
+            intent.putExtras(bundleStatus)
+            startActivity(intent)
+        }
+
+        with(binding.wishlistRecycleView) {
+            adapter = wishlistAdapter
+            setHasFixedSize(true)
+        }
     }
 
     companion object {
