@@ -27,8 +27,6 @@ class WishlistAdapter(private val data: List<WishList>,
             var formatAngka = formatter.format(wishList.goal)
             valueGoalWishlist.text = "Rp. $formatAngka"
             angkaHari.text = wishList.jumlahHari.toString()
-            formatAngka = formatter.format(wishList.terkumpul)
-            valueKumpulWishlist.text = "Rp. $formatAngka"
             binding.progressBarGoal.max = wishList.goal
             val currentProgress = wishList.terkumpul
             binding.progressBarGoal.progress = currentProgress

@@ -10,16 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:elevation="5dp"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingRight="20dp"
-        android:layout_marginRight="20dp"
         android:background="@drawable/radius_history"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="lollipop">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/wishlist_image"
@@ -119,8 +118,6 @@
             android:text="@string/hari_lagi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
