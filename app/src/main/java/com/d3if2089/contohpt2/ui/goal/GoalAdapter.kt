@@ -8,10 +8,13 @@ import com.d3if2089.contohpt2.data.Goal
 import com.d3if2089.contohpt2.databinding.ItemGoalBinding
 import java.text.DecimalFormat
 
-class GoalAdapter(private val data: List<Goal>) :
+class GoalAdapter(
+    private val data: List<Goal>,
+    var handler: (Int, Goal) -> Unit
+) :
     RecyclerView.Adapter<GoalAdapter.ViewHolder>() {
 
-    class ViewHolder(private val binding: ItemGoalBinding) :
+    class ViewHolder(val binding: ItemGoalBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(goal: Goal) = with(binding) {
             monthHistory.text = goal.month
@@ -43,5 +46,10 @@ class GoalAdapter(private val data: List<Goal>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(data[position])
+        val item = data[position]
+        with(holder) {
+            bind(item)
+            binding.root.setOnClickListener { handler(position, item) }
+        }
     }
 }

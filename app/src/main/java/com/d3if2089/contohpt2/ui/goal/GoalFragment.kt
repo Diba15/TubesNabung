@@ -1,5 +1,6 @@
 package com.d3if2089.contohpt2.ui.goal
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -26,7 +27,8 @@ class GoalFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentGoalBinding
-    private var list: MutableList<Goal> = mutableListOf(
+    private lateinit var goalAdapter: GoalAdapter
+    private val list: MutableList<Goal> = mutableListOf(
         Goal("OKT", 30000, 30000),
         Goal("NOV", 30000, 20000),
         Goal("DES", 30000, 15000),
@@ -50,18 +52,11 @@ class GoalFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentGoalBinding.inflate(layoutInflater, container, false)
         //Membuat Recycler View memiliki data
-        with(binding.goalRecycleView) {
-            adapter = GoalAdapter(getData())
-            setHasFixedSize(true)
-        }
+        getData()
         //Membuat agar menu appbar muncul
         setHasOptionsMenu(true)
         setBarChart()
         return binding.root
-    }
-
-    private fun getData(): MutableList<Goal> {
-        return list
     }
 
     //Inisiasi Menu
@@ -112,19 +107,41 @@ class GoalFragment : Fragment() {
         barEntries.add(BarEntry(80000f, 5))
 
 
-        val barDataSet = BarDataSet(barEntries,"Terkumpul")
-        barDataSet.color= resources.getColor(R.color.royal_blue)
+        val barDataSet = BarDataSet(barEntries, "Terkumpul")
+        barDataSet.color = resources.getColor(R.color.royal_blue)
 
         val finalDataSet = ArrayList<BarDataSet>()
         finalDataSet.add(barDataSet)
 
-        val data = BarData(xValues,finalDataSet as List<BarDataSet>?)
+        val data = BarData(xValues, finalDataSet as List<BarDataSet>?)
         yAxis.setLabelCount(0, true)
         xAxis.setLabelsToSkip(4)
         barChart.setDescription(null)
 
         barChart.data = data
         barChart.setBackgroundColor(resources.getColor(R.color.white))
+    }
+
+    private fun getData() {
+
+        goalAdapter = GoalAdapter(list) { _, item ->
+
+            val bundleStatus = Bundle()
+            with(bundleStatus) {
+                putString("month", item.month)
+                putInt("goal", item.goal)
+                putInt("terkumpul", item.terkumpul)
+            }
+
+            val intent = Intent(context, DetailGoal::class.java)
+            intent.putExtras(bundleStatus)
+            startActivity(intent)
+        }
+
+        with(binding.goalRecycleView) {
+            adapter = goalAdapter
+            setHasFixedSize(true)
+        }
     }
 
     companion object {

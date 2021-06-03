@@ -41,4 +41,7 @@
     <string name="hint_keterangan">Masukan Keterangan</string>
     <string name="image_hint">click to add image</string>
     <string name="hapus">Hapus</string>
+
+    <string name="detailGoal">Detail Goal</string>
+    <string name="detailWishlist">Detail Wishlist</string>
 </resources>

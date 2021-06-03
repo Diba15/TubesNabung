@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.d3if2089.contohpt2.DetailWishlist
 import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.data.WishList
 import com.d3if2089.contohpt2.databinding.FragmentWishlistBinding
@@ -41,18 +40,18 @@ class WishlistFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentWishlistBinding.inflate(layoutInflater,container, false)
+        binding = FragmentWishlistBinding.inflate(layoutInflater, container, false)
         binding.floatingAddButton.setOnClickListener {
             startActivity(Intent(context, AddWishlist::class.java))
         }
-        getMenu()
+        getData()
         return binding.root
     }
 
-    private fun getMenu() {
+    private fun getData() {
         val list: MutableList<WishList> = listOf(
-            WishList("Meja Belajar",20000, R.drawable.meja_belajar,20000,20),
-            WishList("Laptop",10000000,R.drawable.laptop,5000000,60)
+            WishList("Meja Belajar", 20000, R.drawable.meja_belajar, 20000, 20),
+            WishList("Laptop", 10000000, R.drawable.laptop, 5000000, 60)
         ).toMutableList()
 
         wishlistAdapter = WishlistAdapter(list) { _, item ->
@@ -60,10 +59,10 @@ class WishlistFragment : Fragment() {
             val bundleStatus = Bundle()
             with(bundleStatus) {
                 putString("nama", item.nama)
-                putInt("goal",item.goal)
-                putInt("terkumpul",item.terkumpul)
-                putInt("jumlahHari",item.jumlahHari)
-                putInt("imageId",item.imageResId)
+                putInt("goal", item.goal)
+                putInt("terkumpul", item.terkumpul)
+                putInt("jumlahHari", item.jumlahHari)
+                putInt("imageId", item.imageResId)
             }
 
             val intent = Intent(context, DetailWishlist::class.java)

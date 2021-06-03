@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailWishlist">
+    tools:context=".ui.wishlist.DetailWishlist">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/layout_toolbar"
@@ -144,6 +144,17 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nominal_tl"
         style="@style/inputLayout_theme"
@@ -156,7 +167,7 @@
         app:boxStrokeColor="@color/royal_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info">
+        app:layout_constraintTop_toBottomOf="@+id/divider">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nominal_editText"

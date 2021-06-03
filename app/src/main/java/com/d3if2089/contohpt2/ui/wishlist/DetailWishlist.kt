@@ -1,4 +1,4 @@
-package com.d3if2089.contohpt2
+package com.d3if2089.contohpt2.ui.wishlist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import com.bumptech.glide.Glide
+import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.databinding.ActivityDetailWishlistBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.text.DecimalFormat
