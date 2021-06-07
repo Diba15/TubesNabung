@@ -3,25 +3,16 @@ package com.d3if2089.contohpt2
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.d3if2089.contohpt2.databinding.ActivityMainBinding
-import com.d3if2089.contohpt2.ui.goal.GoalFragment
 import com.d3if2089.contohpt2.ui.profile.ProfileFragment
 import com.d3if2089.contohpt2.ui.statistic.StatisticFragment
 import com.d3if2089.contohpt2.ui.wishlist.WishlistFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private val wishlistFragment = WishlistFragment()
     private val statisticFragment = StatisticFragment()
-    private val goalFragment = GoalFragment()
     private val profileFragment = ProfileFragment()
     private lateinit var binding: ActivityMainBinding
 
@@ -35,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.layoutToolbar)
 
         //mengatur halaman awal fragment
-        currentPage(WishlistFragment())
+        currentPage(profileFragment)
         //Membuat agar navigasi berfungsi
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {

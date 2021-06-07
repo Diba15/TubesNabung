@@ -155,19 +155,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_saran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/saran"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-condensed"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/isi_saran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="1 Hari = Rp.1.667.000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_saran"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nominal_tl"
         style="@style/inputLayout_theme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="20dp"
         android:fontFamily="sans-serif-condensed"
         android:hint="@string/hint_nominal"
         android:textColorHint="@color/gray"
         app:boxStrokeColor="@color/royal_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider">
+        app:layout_constraintTop_toBottomOf="@+id/isi_saran">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nominal_editText"
