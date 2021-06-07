@@ -78,6 +78,11 @@ class DetailWishlist : AppCompatActivity() {
         binding.detailJumlahHari.text = jumlahHari.toString()
         binding.detailImage.setImageResource(imageId)
 
+        val saran = goal / jumlahHari
+
+        formatAngka = formatter.format(saran)
+        binding.valueSaran.text = "Rp. $formatAngka"
+
         if (goal == terkumpul) {
             binding.nominalEditText.isEnabled = false
             binding.addButton.isEnabled = false

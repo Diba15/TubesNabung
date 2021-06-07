@@ -168,14 +168,22 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/isi_saran"
+        android:id="@+id/tv_hari"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="1 Hari = Rp.1.667.000"
+        android:text="1 Hari = "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_saran"/>
+
+    <TextView
+        android:id="@+id/value_saran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp.1.667.000"
+        app:layout_constraintTop_toBottomOf="@id/tv_saran"
+        app:layout_constraintStart_toEndOf="@id/tv_hari"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nominal_tl"
@@ -189,7 +197,7 @@
         app:boxStrokeColor="@color/royal_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/isi_saran">
+        app:layout_constraintTop_toBottomOf="@+id/tv_hari">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nominal_editText"
