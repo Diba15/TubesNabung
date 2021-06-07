@@ -44,4 +44,9 @@
 
     <string name="detailGoal">Detail Goal</string>
     <string name="detailWishlist">Detail Wishlist</string>
+    <string name="monthname">MonthName</string>
+    <string name="list_wishlist">List Wishlist:</string>
+    <string name="wishlistname">wishlistName</string>
+    <string name="saran">Saran</string>
+    <string name="tambah">Tambah</string>
 </resources>

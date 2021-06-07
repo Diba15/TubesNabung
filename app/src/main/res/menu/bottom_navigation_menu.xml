@@ -7,11 +7,6 @@
         android:icon="@drawable/favorites"
         android:title="Wishlist"/>
     <item
-        android:id="@+id/goal"
-        android:enabled="true"
-        android:icon="@drawable/goal"
-        android:title="Goal"/>
-    <item
         android:id="@+id/statistik"
         android:enabled="true"
         android:icon="@drawable/chart"

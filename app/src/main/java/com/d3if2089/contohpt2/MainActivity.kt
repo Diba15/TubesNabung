@@ -47,10 +47,6 @@ class MainActivity : AppCompatActivity() {
                     binding.titleText.text = "Profile"
                     currentPage(profileFragment)
                 }
-                R.id.goal -> {
-                    binding.titleText.text = getString(R.string.goal_title)
-                    currentPage(goalFragment)
-                }
                 R.id.statistik -> {
                     binding.titleText.text = getString(R.string.statistic)
                     currentPage(statisticFragment)
