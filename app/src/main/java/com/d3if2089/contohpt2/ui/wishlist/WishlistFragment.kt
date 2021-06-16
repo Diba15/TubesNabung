@@ -38,7 +38,7 @@ class WishlistFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentWishlistBinding.inflate(layoutInflater, container, false)
         binding.floatingAddButton.setOnClickListener {
