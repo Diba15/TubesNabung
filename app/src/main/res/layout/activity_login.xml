@@ -109,6 +109,7 @@
             android:id="@+id/password_editText"
             android:maxLines="1"
             android:lines="1"
+            android:inputType="textPassword"
             android:textColor="@color/white"
             android:fontFamily="sans-serif-condensed"
             android:layout_width="match_parent"

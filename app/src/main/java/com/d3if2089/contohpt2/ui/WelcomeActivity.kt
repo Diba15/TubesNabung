@@ -28,11 +28,9 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun login() {
         startActivity(Intent(this@WelcomeActivity, LoginActivity::class.java))
-        finish()
     }
 
     private fun register() {
         startActivity(Intent(this@WelcomeActivity, RegisterActivity::class.java))
-        finish()
     }
 }

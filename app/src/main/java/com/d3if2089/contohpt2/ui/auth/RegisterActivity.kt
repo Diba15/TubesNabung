@@ -42,7 +42,9 @@ class RegisterActivity : AppCompatActivity() {
                 val success = jsonObject.getString("success")
 
                 if (success.equals("1")) {
-                    Toast.makeText(this, "Register Success", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Silahkan Login", Toast.LENGTH_LONG).show()
+                    startActivity(Intent(this, WelcomeActivity::class.java))
+                    finish()
                 }
             }, {
                 Toast.makeText(this, "Register Error", Toast.LENGTH_LONG).show()

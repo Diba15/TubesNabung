@@ -78,15 +78,4 @@ class ProfileFragment : Fragment() {
                 }
             }
     }
-
-    private fun getData(): List<History> {
-        return listOf(
-            History("OKT", 3000000, 3000000),
-            History("NOV", 3000000, 3000000),
-            History("DES", 3000000, 3000000),
-            History("JAN", 3000000, 3000000),
-            History("FEB", 3000000, 3000000),
-            History("MAR", 3000000, 3000000)
-        )
-    }
 }
