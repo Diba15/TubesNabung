@@ -4,11 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.d3if2089.contohpt2.databinding.ActivityAddWishlistBinding
-import java.util.jar.Manifest
 
 class AddWishlist : AppCompatActivity() {
 
@@ -48,8 +47,8 @@ class AddWishlist : AppCompatActivity() {
     }
 
     companion object {
-        private val IMAGE_PICK_CODE = 1000;
-        private val PERMISSION_CODE = 1001;
+        private const val IMAGE_PICK_CODE = 1000
+        private const val PERMISSION_CODE = 1001
     }
 
     override fun onRequestPermissionsResult(
