@@ -2,13 +2,22 @@ package com.d3if2089.contohpt2.ui.wishlist
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.d3if2089.contohpt2.MainActivity
 import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.data.WishList
+import com.d3if2089.contohpt2.data.login.ResponseLogin
+import com.d3if2089.contohpt2.data.wishlist.ResponseWishlist
 import com.d3if2089.contohpt2.databinding.FragmentWishlistBinding
+import com.d3if2089.contohpt2.network.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,6 +82,32 @@ class WishlistFragment : Fragment() {
         with(binding.wishlistRecycleView) {
             adapter = wishlistAdapter
             setHasFixedSize(true)
+        }
+    }
+
+    private fun getWishlist() {
+        val bundle = this.arguments
+        var idUser = 0
+        if (bundle != null) {
+            idUser = bundle.getInt("id_user")
+        }
+        val api = RetrofitClient().getInstance()
+        with(api) {
+            showWishlist(idUser).enqueue(object : Callback<ResponseWishlist> {
+                override fun onResponse(
+                    call: Call<ResponseWishlist>,
+                    response: Response<ResponseWishlist>
+                ) {
+                    if (response.isSuccessful) {
+
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseWishlist>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
         }
     }
 

@@ -2,6 +2,7 @@ package com.d3if2089.contohpt2.ui.statistic
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +11,17 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.data.Kategori
+import com.d3if2089.contohpt2.data.statistik.ListStatistik
+import com.d3if2089.contohpt2.data.statistik.ResponseListStatistik
 import com.d3if2089.contohpt2.databinding.FragmentStatisticBinding
-import com.d3if2089.contohpt2.ui.wishlist.AddWishlist
+import com.d3if2089.contohpt2.network.RetrofitClient
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,8 +38,7 @@ class StatisticFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentStatisticBinding
-    var months: Array<String> = arrayOf("Jan", "Feb", "Mar")
-    var values: Array<Int> = arrayOf(3000, 2000, 3000)
+    private var result: List<ListStatistik> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,25 +54,70 @@ class StatisticFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentStatisticBinding.inflate(layoutInflater, container, false)
+        setLineChartData()
+        getData()
         with(binding.recyclerStatis) {
             addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
-            adapter = StatisticAdapter(getData())
+            adapter = StatisticAdapter(result)
             setHasFixedSize(true)
         }
-        setLineChartData()
         binding.floatingButtonStatistic.setOnClickListener {
-            startActivity(Intent(context, AddStatistic::class.java))
+            val intent = Intent(context, AddStatistic::class.java)
+            val bundle = this.arguments
+            if (bundle != null) {
+                intent.putExtra("id_user", bundle.getInt("id_user"))
+            }
+            startActivity(intent)
         }
         return binding.root
     }
 
-    private fun getData(): List<Kategori> {
+    @JvmName("getList1")
+    private fun getList(): List<Kategori> {
         return listOf(
-            Kategori("Pemasukan", "Gajian", 3000000),
             Kategori("Pengeluaran", "Beli PS5", 8000000),
             Kategori("Pemasukan", "Bonus", 2000000),
             Kategori("Pengeluaran", "Makan", 1000000)
         )
+    }
+
+    private fun getData() {
+        val bundle = this.arguments
+        if (bundle != null) {
+            val idUser = bundle.getInt("id_user")
+            val api = RetrofitClient().getInstance()
+            with(api) {
+                showStatistik(idUser.toString()).enqueue(object : Callback<ResponseListStatistik> {
+                    override fun onResponse(
+                        call: Call<ResponseListStatistik>,
+                        response: Response<ResponseListStatistik>
+                    ) {
+                        if (response.isSuccessful) {
+                            if (response.body()?.response == true) {
+                                result = response.body()!!.statistik
+                                with(binding.recyclerStatis) {
+                                    addItemDecoration(
+                                        DividerItemDecoration(
+                                            context,
+                                            RecyclerView.VERTICAL
+                                        )
+                                    )
+                                    adapter = StatisticAdapter(result)
+                                    setHasFixedSize(true)
+                                }
+                            }
+                        } else {
+                            Log.e("error", "Error")
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseListStatistik>, t: Throwable) {
+                        t.message?.let { Log.e("ErrorRetro", it) }
+                    }
+
+                })
+            }
+        }
     }
 
     companion object {

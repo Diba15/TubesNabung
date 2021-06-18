@@ -27,6 +27,7 @@
         tools:targetApi="lollipop">
 
         <TextView
+            android:id="@+id/name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
@@ -46,6 +47,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/value_tabungan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

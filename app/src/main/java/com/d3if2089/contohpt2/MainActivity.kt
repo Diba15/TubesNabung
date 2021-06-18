@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
         //Membuat agar bisa menggunakan custom appbar
@@ -32,14 +31,33 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId) {
                 R.id.wishlist -> {
                     binding.titleText.text = getString(R.string.wishlist)
+                    val argumentWishlist = Bundle()
+                    with(argumentWishlist) {
+                        putInt("id_user",intent.getIntExtra("id",0))
+                        putFloat("tabungan", intent.getFloatExtra("tabungan",0f))
+                    }
+                    wishlistFragment.arguments = argumentWishlist
                     currentPage(wishlistFragment)
                 }
                 R.id.profile -> {
                     binding.titleText.text = "Profile"
+                    val argumentProfile = Bundle()
+                    with(argumentProfile) {
+                        putString("name", intent.getStringExtra("name"))
+                        putString("username", intent.getStringExtra("username"))
+                        putFloat("tabungan", intent.getFloatExtra("tabungan",0f))
+                    }
+                    profileFragment.arguments = argumentProfile
                     currentPage(profileFragment)
                 }
                 R.id.statistik -> {
                     binding.titleText.text = getString(R.string.statistic)
+                    val argumentStatistik = Bundle()
+                    with(argumentStatistik) {
+                        putInt("id_user",intent.getIntExtra("id",0))
+                        putFloat("tabungan", intent.getFloatExtra("tabungan",0f))
+                    }
+                    statisticFragment.arguments = argumentStatistik
                     currentPage(statisticFragment)
                 }
             }

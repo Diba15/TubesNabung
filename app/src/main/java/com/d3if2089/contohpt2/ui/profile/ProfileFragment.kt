@@ -8,6 +8,7 @@ import com.d3if2089.contohpt2.R
 import com.d3if2089.contohpt2.ui.WelcomeActivity
 import com.d3if2089.contohpt2.data.History
 import com.d3if2089.contohpt2.databinding.FragmentProfileBinding
+import java.text.DecimalFormat
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,9 +39,16 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         setHasOptionsMenu(true)
+        val bundle = this.arguments
+        if (bundle != null) {
+            binding.nameTv.text = bundle.getString("name")
+            val formatter = DecimalFormat("#,###")
+            val formatAngka = formatter.format(bundle.getFloat("tabungan"))
+            binding.valueTabungan.text = "Rp.$formatAngka"
+        }
         return binding.root
     }
 
