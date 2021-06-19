@@ -25,7 +25,7 @@ interface ApiClient {
     @FormUrlEncoded
     @POST("listStatistik.php")
     fun showStatistik(
-        @Field("idUser") idUser: String
+        @Field("idUser") idUser: Int
     ): Call<ResponseListStatistik>
 
     @FormUrlEncoded

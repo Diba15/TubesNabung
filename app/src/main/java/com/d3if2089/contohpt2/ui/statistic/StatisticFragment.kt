@@ -87,7 +87,7 @@ class StatisticFragment : Fragment() {
             val idUser = bundle.getInt("id_user")
             val api = RetrofitClient().getInstance()
             with(api) {
-                showStatistik(idUser.toString()).enqueue(object : Callback<ResponseListStatistik> {
+                showStatistik(idUser).enqueue(object : Callback<ResponseListStatistik> {
                     override fun onResponse(
                         call: Call<ResponseListStatistik>,
                         response: Response<ResponseListStatistik>
@@ -96,12 +96,7 @@ class StatisticFragment : Fragment() {
                             if (response.body()?.response == true) {
                                 result = response.body()!!.statistik
                                 with(binding.recyclerStatis) {
-                                    addItemDecoration(
-                                        DividerItemDecoration(
-                                            context,
-                                            RecyclerView.VERTICAL
-                                        )
-                                    )
+                                    addItemDecoration(DividerItemDecoration(context,RecyclerView.VERTICAL))
                                     adapter = StatisticAdapter(result)
                                     setHasFixedSize(true)
                                 }

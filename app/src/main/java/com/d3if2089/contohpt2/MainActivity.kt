@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.layoutToolbar)
 
         //mengatur halaman awal fragment
-        currentPage(wishlistFragment)
+        currentPage(profileFragment)
         //Membuat agar navigasi berfungsi
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
